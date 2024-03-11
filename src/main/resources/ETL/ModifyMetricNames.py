@@ -10,6 +10,14 @@ def extract_last_word_after_colon(column_name):
         return last_word
     else:
         return column_name
+
+def fix_countries(filename):
+    df = pd.read_csv(filename, encoding='ISO-8859-1')
+
+    df.columns = df.columns.str.replace(" ","_").str.replace("-","_")
+
+    df.to_csv('G:\\10th_semester\\Databases_2\\Data_Countries\\countries_MODIFIED.csv', index=False)
+    print("completed countries")
  
 def fix_climate(filename):
     
@@ -86,3 +94,4 @@ def main_func():
     fix_temperature('G:\\10th_semester\\Databases_2\\Data_Countries\\Annual_Surface_Temperature_Change_YEARFIX.csv')
     fix_forest('G:\\10th_semester\\Databases_2\\Data_Countries\\Forest_and_Carbon_YEARFIX.csv')
     fix_land('G:\\10th_semester\\Databases_2\\Data_Countries\\Land_Cover_Accounts_YEARFIX.csv')
+    fix_countries('G:\\10th_semester\\Databases_2\\Data_Countries\\countries_MODIFIED.csv')
