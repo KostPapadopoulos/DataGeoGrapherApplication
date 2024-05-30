@@ -1,0 +1,29 @@
+.graph-text {
+    position: absolute;
+    top: 40%;
+    left: 80%;  /* Adjusted from 70% to 68% for better centering */
+    transform: translate(-50%, -50%);
+    font-size: 1.4em;
+    font-family: 'Arial', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+
+.graph-options select {
+    position: absolute;
+    top: 44.5%;
+    left: 75%;
+    width: 12%;  /* Ensures the select element fills its container */
+    height: 40px;  /* Adjust height as needed */
+    background-color: white;  /* Ensures the dropdown is clearly visible */
+    color: black;  /* Text color for the dropdown */
+    border: 1px solid #ccc;  /* Adds a light gray border */
+    font-size: 16px;  /* Text size within the dropdown */
+    padding: 4px 8px;  /* Padding inside the dropdown */
+}
+
+.graph-options select option {
+    color: black;  /* Ensures the options are visible */
+    background-color: white;  /* Background of options, can be changed if needed */
+}
+

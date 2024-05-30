@@ -1,0 +1,56 @@
+select {
+    width: 300px; /* Adjust if necessary */
+    height: 300px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    position: absolute;
+    left: 10%;
+    top: 50%; /* Adjust if necessary */
+    transform: translateY(-50%); /* Center vertically */
+
+  }
+  
+  option {
+    /* max-width: 100%; /* Prevents horizontal overflow */
+    white-space: nowrap; /* Keeps the text on one line */
+    overflow: hidden; /* Hides text that overflows */
+    text-overflow: ellipsis; /* Adds ellipsis to overflowed text */
+    padding: 8px 10px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    color : black;
+  }
+
+select:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #0066ff; /* Highlight color when focused */
+  box-shadow: 0 0 5px rgba(0,102,255,0.5); /* Glow effect when focused */
+}
+/* Enhance the visual feedback on hover */
+option:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+.countries-text{
+  position: absolute;
+  top: 26%;
+  left: 17.5%; 
+  transform: translate(-50%, -50%); 
+  font-size: 1.4em; 
+  font-family: 'Arial', sans-serif; 
+  color: rgb(0, 0, 0);
+}
+
+.selected-countries-input {
+  position: absolute;
+  top: 28%;          /* Adjust if you want it higher or lower */
+  left: 10%;
+  width: 14.5%;        /* This should make it nearly as wide as the parent container */
+  height: 1.5%;      /* Increased height for better visibility */
+  padding: 10px;     /* Larger padding for more internal space */
+  font-size: 18px;   /* Larger font size for better readability */
+  color: black;      /* Ensures text color is visible */
+}

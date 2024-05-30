@@ -1,0 +1,36 @@
+.starting-year-text {
+  position: absolute;
+  top: 30%;
+  left: 60.5%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4em;
+  font-family: 'Arial', sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+.starting-year-dropdown {
+  position: absolute;
+  width: 9.3%;
+  padding: 8px;
+  height: 5%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  top: 34.5%;
+  left: 55.3%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.starting-year-input {
+  position: absolute;
+  width: 9.3%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  top: 45%;
+  left: 55.5%;
+  background-color: #f7f7f7; /* Different background for a read-only field */
+  cursor: default; /* Indicates this input isn't clickable */
+}
