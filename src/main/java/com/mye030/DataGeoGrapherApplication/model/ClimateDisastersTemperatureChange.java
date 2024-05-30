@@ -1,6 +1,9 @@
 package com.mye030.DataGeoGrapherApplication.model;
 
 import javax.persistence.*;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "climate_disasters_temperature_change")
@@ -83,5 +86,14 @@ public class ClimateDisastersTemperatureChange {
 
     public Integer getWildfire() {
         return wildfire;
+    }
+
+    public static List<String> getAttributeNames(Class<?> clazz) {
+        List<String> attributeNames = new ArrayList<>();
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            attributeNames.add(field.getName());
+        }
+        return attributeNames;
     }
 }

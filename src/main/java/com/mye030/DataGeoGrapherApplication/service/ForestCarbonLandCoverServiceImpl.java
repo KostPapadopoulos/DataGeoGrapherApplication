@@ -7,9 +7,7 @@ import com.mye030.DataGeoGrapherApplication.model.ForestCarbonLandCover;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 @Service
 public class ForestCarbonLandCoverServiceImpl implements ForestCarbonLandCoverService{
@@ -25,7 +23,6 @@ public class ForestCarbonLandCoverServiceImpl implements ForestCarbonLandCoverSe
     public TreeMap<Integer, Object> requestedForestLandMetric(int isoCode, int startYear, int endYear, String selectedMetric) {
         List<ForestCarbonLandCover> countryMetrics = forestCarbonLandCoverDAO.findByisoCode(isoCode);
         TreeMap<Integer,Object> finalData = new TreeMap<>();
-
         for (int i = 0; i < countryMetrics.size(); i++) {
 
             if (countryMetrics.get(i).getYear_() >= startYear && countryMetrics.get(i).getYear_() <= endYear) {
@@ -115,5 +112,27 @@ public class ForestCarbonLandCoverServiceImpl implements ForestCarbonLandCoverSe
         }
 
         return finalData;
+    }
+
+    @Override
+    public List<String> getMetrics() {
+        List<String> forestCarbonLandCoverMetrics = ForestCarbonLandCover.getAttributeNames(ForestCarbonLandCover.class);
+
+        Set<String> uniqueMetrics = new HashSet<>();
+
+        uniqueMetrics.addAll(forestCarbonLandCoverMetrics);
+        List<String> forestCarbonLandCoverMetricsList = filterNonGraphableAttributes(uniqueMetrics);
+
+        return forestCarbonLandCoverMetricsList;
+    }
+
+    public List<String> filterNonGraphableAttributes(Set<String> badMetrics){
+        badMetrics.remove("year_");
+        badMetrics.remove("fId");
+        badMetrics.remove("isoCode");
+        List<String> fixedMetrics = new ArrayList<>(badMetrics);
+
+        return fixedMetrics;
+
     }
 }

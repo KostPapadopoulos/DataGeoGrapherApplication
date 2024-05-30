@@ -1,6 +1,9 @@
 package com.mye030.DataGeoGrapherApplication.model;
 
 import javax.persistence.*;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "forest_carbon_land_cover")
@@ -167,5 +170,14 @@ public class ForestCarbonLandCover {
 
     public Float getWoodyCrops() {
         return woodyCrops;
+    }
+
+    public static List<String> getAttributeNames(Class<?> clazz) {
+        List<String> attributeNames = new ArrayList<>();
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            attributeNames.add(field.getName());
+        }
+        return attributeNames;
     }
 }

@@ -2,13 +2,11 @@ package com.mye030.DataGeoGrapherApplication.service;
 
 import com.mye030.DataGeoGrapherApplication.dao.ClimateDisastersTemperatureChangeDAO;
 import com.mye030.DataGeoGrapherApplication.model.ClimateDisastersTemperatureChange;
+import com.mye030.DataGeoGrapherApplication.model.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 @Service
 public class ClimateDisastersTemperatureChangeServiceImpl implements ClimateDisastersTemperatureChangeService{
@@ -25,7 +23,6 @@ public class ClimateDisastersTemperatureChangeServiceImpl implements ClimateDisa
 
         List<ClimateDisastersTemperatureChange> countryMetrics = climateDisastersTemperatureChangeDAO.findByisoCode(isoCode);
         TreeMap<Integer,Object> finalData = new TreeMap<>();
-
         for (int i = 0; i < countryMetrics.size(); i++) {
 
             if (countryMetrics.get(i).getYear_() >= startYear && countryMetrics.get(i).getYear_() <= endYear) {
@@ -65,7 +62,32 @@ public class ClimateDisastersTemperatureChangeServiceImpl implements ClimateDisa
                 }
             }
         }
-
         return finalData;
     }
+
+    @Override
+    public List<String> getMetrics() {
+        List<String> climateMetrics = ClimateDisastersTemperatureChange.getAttributeNames(ClimateDisastersTemperatureChange.class);
+
+        Set<String> uniqueMetrics = new HashSet<>();
+
+        uniqueMetrics.addAll(climateMetrics);
+
+
+        List<String> climateMetricsList = filterNonGraphableAttributes(uniqueMetrics);
+
+
+        return climateMetricsList;
+    }
+
+    public List<String> filterNonGraphableAttributes(Set<String> badMetrics) {
+        badMetrics.remove("isoCode");
+        badMetrics.remove("year_");
+        badMetrics.remove("c_id");
+        List<String> fixedMetrics = new ArrayList<>(badMetrics);
+
+        return fixedMetrics;
+
+    }
+
 }

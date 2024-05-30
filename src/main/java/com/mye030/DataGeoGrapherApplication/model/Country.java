@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="countries")
@@ -180,6 +183,15 @@ public class Country {
 
     public Integer getPopulation() {
         return population;
+    }
+
+    public static List<String> getAttributeNames(Class<?> clazz) {
+        List<String> attributeNames = new ArrayList<>();
+        Field[] fields = clazz.getDeclaredFields();
+        for (Field field : fields) {
+            attributeNames.add(field.getName());
+        }
+        return attributeNames;
     }
 }
 
