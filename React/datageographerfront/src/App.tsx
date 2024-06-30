@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Homepage from "./Homepage"; // Ensure the import path is correct
-import FilterSelection from "./FilterSelection"; // Assuming you have a Home component
+import Homepage from "./Homepage"; 
+import FilterSelection from "./FilterSelection"; 
 import GraphPage from "./GraphPage";
 
 function App() {
