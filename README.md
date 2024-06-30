@@ -6,6 +6,6 @@ For the Advanced Topics in Database Technology and Applications course ΜΥΕ030
 
 <b> Project Objective: </b>
 
-The goal of this project is to develop a web application designed for dynamic exploration and visualization of global metrics by country across various timeframes. Users can select countries, metrics, and time ranges through an intuitive GUI, creating visualizations like graphs, bar charts, line charts, and scatter plots. For advanced users, GeoMetrics offers a powerful feature to write and execute custom queries, providing flexibility beyond the GUI selections. This tool is perfect for researchers, analysts, and anyone curious about global trends and comparisons.
+The goal of this project is to develop a web application designed for dynamic exploration and visualization of global metrics by country across various timeframes. Users can select countries, metrics, and time ranges through an intuitive GUI, creating visualizations like graphs, bar charts, line charts, and scatter plots. This tool is perfect for researchers, analysts, and anyone curious about global trends and comparisons.
 
-Data Geo Grapher Application is implemented using IntelliJ IDE and the Spring Boot framework. It is a versatile web application developed using Java, Python, MySQL, HTML, CSS, JavaScript.
+Data Geo Grapher Application is implemented using IntelliJ IDE, Visual Studio Code IDE and the Spring Boot framework. It is a versatile web application developed using Java, Python, MySQL, HTML, CSS, JavaScript, TypeScript.
