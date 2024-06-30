@@ -1,5 +1,5 @@
 import React from "react";
-import "./GraphTypeList.css"; // Make sure to import the CSS for styling
+import "./GraphTypeList.css"; 
 
 interface GraphOptionsProps {
   selectedGraphType: string;
